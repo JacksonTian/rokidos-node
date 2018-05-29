@@ -4,7 +4,7 @@ const Player = require('@rokid/player').Player;
 const sounder = new Player({
   autoStop: false,
 });
-let initialized = false;
+// let initialized = false;
 let lastPowerTimestamp = 0;
 
 /**
@@ -16,13 +16,15 @@ module.exports = {
    * @method keyup
    */
   keyup() {
-    if (!initialized) {
-      sounder.play(`${__dirname}/sounds/volume.ogg`);
-      initialized = true;
-    } else {
-      // sounder.pause();
-      sounder.seek(0);
-    }
+    const sounder = new Player();
+    sounder.play(`${__dirname}/sounds/volume.ogg`);
+    // if (!initialized) {
+    //   sounder.play(`${__dirname}/sounds/volume.ogg`);
+    //   initialized = true;
+    // } else {
+    //   // sounder.pause();
+    //   sounder.seek(0);
+    // }
   },
 
   /**
